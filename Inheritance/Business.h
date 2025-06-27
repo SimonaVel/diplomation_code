@@ -12,10 +12,16 @@ public:
     ~Business();
     double getRevenue() const;
     void setRevenue(const double newRevenue);
+
+    static double getTaxRate();
+    static void setTaxRate(double newTaxRate);
     virtual void display() const;
+
+    static inline double calculateTax(double revenue);
 
 private:
     double revenue;
+    static double taxRate;
 };
 
 #endif // BUSINESS

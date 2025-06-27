@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
 #include "Library.cpp"
+// #include "Library.h"
 #include "Building.cpp"
+// #include "Building.h"
 #include "Business.cpp"
+// #include "Business.h"
 
 using namespace std;
 int main() {
@@ -11,7 +14,12 @@ int main() {
     // Display the library information
     myLibrary.display();
 
-    // cout << "Get address: " << myLibrary.getAddress() << endl;
+    // Set tax
+    Business::setTaxRate(0.10);
+    // Calculate and display tax on the library's revenue
+    double tax = Business::calculateTax(myLibrary.getRevenue());
 
+    cout << "Tax on library revenue: " << tax << endl;
+    // cout << "Tax rate: " << Library::getTaxRate() << endl;
     return 0;
 }
