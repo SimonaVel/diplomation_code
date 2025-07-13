@@ -14,3 +14,12 @@ string Flower::getType() const { return type; }
 void Flower::display() const {
     cout << getType() << endl;
 }
+
+Flower& Flower::operator=(const Flower& r){
+    if(type != r.type) {		
+        this->type = r.type;
+    }	
+    return *this;
+}
+
+

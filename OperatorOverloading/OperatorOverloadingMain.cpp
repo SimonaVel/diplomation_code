@@ -6,15 +6,20 @@
 using namespace std;
 int main() {
     Flower peony("Peony");
-    Flower Rose("Rose");
+    Flower rose("Rose");
 
     // Bouquet bouquet1;
     // bouquet1.addFlowerToBouquet(peony1);
     // bouquet1.addFlowerToBouquet(Rose1);
 
-    Bouquet bouquet = peony + Rose;
+    Bouquet bouquet = peony + rose;
     
     bouquet.display();
+
+    // Demonstrating the assignment operator
+    peony = rose;
+    cout << "After assignment, peony type: " << peony.getType() << endl;
+
 
     return 0;
 }

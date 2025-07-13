@@ -17,6 +17,8 @@ public:
 
     virtual void display() const;
 
+    Flower& operator=(const Flower& );
+
 private:
     string type;
 };
