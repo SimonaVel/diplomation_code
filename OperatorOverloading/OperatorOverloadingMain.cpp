@@ -2,9 +2,12 @@
 #include <string>
 #include "Bouquet.cpp"
 #include "Flower.cpp"
+#include "../Util/steaming.cpp"
 
 using namespace std;
 int main() {
+    // ========================================================== //
+    cout << "Operator Overloading Example with flowers" << endl;
     Flower peony("Peony");
     Flower rose("Rose");
 
@@ -20,6 +23,19 @@ int main() {
     peony = rose;
     cout << "After assignment, peony type: " << peony.getType() << endl;
 
+    // ========================================================== //
+    cout << "\nDemonstrating the print function with different data types:" << endl;
+    int arr[] = {1, 2, 3, 4, 5};
+    double arr2[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    string arr3[] = {"one", "two", "three", "four", "five"};
+    print(cout, arr, 5);
+    cout << endl;
+    print(cout, arr2, 5);
+    cout << endl;
+    print(cout, arr3, 5);
+    cout << endl;
 
+    // ========================================================== //
+    cout << "\nEnd of program." << endl;
     return 0;
 }
