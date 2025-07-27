@@ -8,6 +8,7 @@ using namespace std;
 
 class Flower {
 public:
+    string getName() const { return name; }
     Flower(string type);
     ~Flower();
 
@@ -20,6 +21,8 @@ public:
     Flower& operator=(const Flower& );
 
 private:
+    string name;
+
     string type;
 };
 

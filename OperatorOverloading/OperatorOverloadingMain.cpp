@@ -3,6 +3,7 @@
 #include "Bouquet.cpp"
 #include "Flower.cpp"
 #include "../Util/steaming.cpp"
+#include "../Templates/Box.cpp"
 
 using namespace std;
 int main() {
@@ -35,6 +36,10 @@ int main() {
     print(cout, arr3, 5);
     cout << endl;
 
+    // ========================================================== //
+    cout << "\nDemonstrating the Box template class:" << endl;
+    Box<Flower> flowerBox(rose);
+    cout << "Flower Box Value: " << flowerBox.getValue().getType() << endl;
     // ========================================================== //
     cout << "\nEnd of program." << endl;
     return 0;

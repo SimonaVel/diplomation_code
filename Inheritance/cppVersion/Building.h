@@ -16,5 +16,4 @@ public:
 private:
     string address;
 };
-
 #endif
