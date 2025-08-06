@@ -1,6 +1,6 @@
 #include <climits>
 
-int* dumbSort(int arr[], int n) {
+int* dumbSort(int* arr, int n) {
     int i = 0, min = 0, minPos = 0;
     int* sortedArr = new int[n];
     while (i < n) {

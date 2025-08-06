@@ -1,6 +1,6 @@
 #include <iostream>
 
-int* selectionSort(int arr[], int n) {
+int* selectionSort(int* arr, int n) {
     for (int i = 0; i < n - 1; ++i) {
         // Find the index of the minimum element
         int minIndex = i;
