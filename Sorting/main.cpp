@@ -13,6 +13,8 @@ int main() {
     int arr2[6] = {3, 1, 4, 2, 6, 5};
     int arr3[6] = {2, 6, 4, 1, 3, 5};
     int arr4[6] = {1, 5, 3, 2, 4, 6};
+    int arr5[6] = {6, 3, 1, 4, 5, 2};
+    int arr6[6] = {4, 6, 3, 1, 5, 2}; 
 
     int size = sizeof(arr)/sizeof(arr[0]); 
 
@@ -45,6 +47,21 @@ int main() {
     printArr(arr4, size);
     cout << " -> ";
     printArr(insertionSort(arr4, size), size);
+    cout << endl;
+
+    // ========== QUICK SORT ========== //
+
+    cout << "Quick sorted: ";
+    printArr(arr5, size);
+    cout << " -> ";
+    printArr(quickSort(arr5, 0, size - 1), size);
+    cout << endl;
+
+    // ========== MERGE SORT ========== //
+    cout << "Merge sorted: ";
+    printArr(arr6, size);
+    cout << " -> ";
+    printArr(mergeSort(arr6, 0, size - 1), size);
     cout << endl;
 
     return 0;
