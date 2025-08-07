@@ -20,3 +20,37 @@ int* quickSort(int* arr, int left, int right) {
     }
     return arr;
 }
+
+void quickSortUni(int *A, int left, int right) { 
+    // образуване на дяловете (2) - преди претърсването им 
+    int i = left, j = right, helper = 0; 
+    int pivot = A[(left+right)/2]; 
+    // i се увеличава, а j се намалява докато не станат равни/разминат се 
+    do { 
+        while (A[i] < pivot) { 
+            i++; 
+        } 
+        while (A[j] > pivot) { 
+            j--; 
+        } 
+        // размяна на двете стойности 
+        if (i <= j) { 
+            helper = A[i]; 
+            A[i] = A[j]; 
+            A[j] = helper; 
+            i++; 
+            j--; 
+        } 
+    } while (i <= j); 
+    if (left < right) { 
+        // ляв дял 
+        // j < i 
+        /* рекурсия */ 
+        quickSort(A, left, j); 
+ 
+        // десен дял 
+        // i > j 
+        /* рекурсия */ 
+        quickSort(A, i, right); 
+    } 
+} 
