@@ -1,0 +1,6 @@
+#include "stack.cpp"
+#include "arrayStack.cpp"
+#include "queue.cpp"
+#include "arrayQueue.cpp"
+#include "priorityQueue.cpp"
+#include "arrayPriorityQueue.cpp"
