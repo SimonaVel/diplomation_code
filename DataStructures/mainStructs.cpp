@@ -71,5 +71,37 @@ int main() {
     arrPQueue.dequeue();
     arrPQueue.print();
 
+    // ========== TREE ========== //
+    cout << "Binary Search Tree:" << endl;
+    tree bst;
+    bst.root = new node(2);
+    bst.root->left = new node(1);
+    bst.root->right = new node(3);
+    cout << "Root: " << bst.root->data << endl;
+    cout << "Left Child: " << bst.root->left->data << endl;
+    cout << "Right Child: " << bst.root->right->data << endl;
+
+    // adding a new child 
+    node* newChild = new node(0);
+
+    // finding leftmost position
+    node* current = bst.root->left;
+    while (current->left != nullptr) {
+        current = current->left;
+    }
+
+    current->left = newChild;
+    cout << "Left Child of Left Child: " << current->left->data << endl;
+
+    // adding a parent to right child
+    node* newParent = new node(5);
+    newParent -> right = bst.root -> right;
+    bst.root -> right = newParent;
+
+    cout << "Parent of rightmost leaf: " << bst.root -> right -> data << endl;
+    cout << "Rightmost leaf: " << bst.root -> right -> right -> data << endl;
+
+
+
     return 0;
 }
