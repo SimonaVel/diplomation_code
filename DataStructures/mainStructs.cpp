@@ -101,7 +101,17 @@ int main() {
     cout << "Parent of rightmost leaf: " << bst.root -> right -> data << endl;
     cout << "Rightmost leaf: " << bst.root -> right -> right -> data << endl;
 
+    // infix
+    cout << "\nInfix loop: ";
+    bst.infixPrint(bst.root);
 
+    // postfix
+    cout << "\nPostifx loop: ";
+    bst.postfixPrint(bst.root);
+
+    // prefix
+    cout << "\nPrefix loop: ";
+    bst.prefixPrint(bst.root);
 
     return 0;
 }
