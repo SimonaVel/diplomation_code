@@ -13,6 +13,10 @@ struct tree {
         root = nullptr;
     }
 
+    ~tree() {
+        deleteTree(this -> root);
+    }
+
     void deleteTree(node* root) { 
         if (root == NULL) return; 
         deleteTree(root->left); 
