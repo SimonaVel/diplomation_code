@@ -1,6 +1,10 @@
 #include "node.cpp"
+#include <iostream>
+
 #ifndef TREE_H
 #define TREE_H
+
+using namespace std;
 
 struct tree {
     node* root;
@@ -38,7 +42,6 @@ struct tree {
         postfixPrint(root->right); 
         cout << root->data << " "; 
     } 
-
 };
 
 #endif
