@@ -81,37 +81,43 @@ int main() {
     cout << "Left Child: " << bst.root->left->data << endl;
     cout << "Right Child: " << bst.root->right->data << endl;
 
-    // // adding a new child 
-    // node* newChild = new node(0);
+    // adding a new child 
+    {
+        node* newChild = new node(0);
 
-    // finding leftmost position
-    node* current = bst.root;
-    while (current->left != nullptr) {
-        current = current->left;
+        // finding leftmost position
+        node* current = bst.root;
+        while (current->left != nullptr) {
+            current = current->left;
+        }
+
+        current->left = newChild;
+        cout << "Left Child of Left Child: " << current->left->data << endl;
+
+        // adding a parent to right child
+        node* newParent = new node(5);
+        newParent -> right = bst.root -> right;
+        bst.root -> right = newParent;
+
+        cout << "Parent of rightmost leaf: " << bst.root -> right -> data << endl;
+        cout << "Rightmost leaf: " << bst.root -> right -> right -> data << endl;
     }
 
-    // current->left = newChild;
-    // cout << "Left Child of Left Child: " << current->left->data << endl;
+    // Traversing trees
+    {
+        // infix
+        cout << "\nInfix loop: ";
+        bst.infixPrint(bst.root);
 
-    // // adding a parent to right child
-    // node* newParent = new node(5);
-    // newParent -> right = bst.root -> right;
-    // bst.root -> right = newParent;
+        // postfix
+        cout << "\nPostifx loop: ";
+        bst.postfixPrint(bst.root);
 
-    // cout << "Parent of rightmost leaf: " << bst.root -> right -> data << endl;
-    // cout << "Rightmost leaf: " << bst.root -> right -> right -> data << endl;
-
-    // infix
-    cout << "\nInfix loop: ";
-    bst.infixPrint(bst.root);
-
-    // postfix
-    cout << "\nPostifx loop: ";
-    bst.postfixPrint(bst.root);
-
-    // prefix
-    cout << "\nPrefix loop: ";
-    bst.prefixPrint(bst.root);
+        // prefix
+        cout << "\nPrefix loop: ";
+        bst.prefixPrint(bst.root);
+    }
+    
 
     // deleting a leaf
     {
@@ -130,7 +136,6 @@ int main() {
         cout << endl << "Child element: " << child -> data;
     }
     
-
 
     return 0;
 }
