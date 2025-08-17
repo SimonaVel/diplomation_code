@@ -81,25 +81,25 @@ int main() {
     cout << "Left Child: " << bst.root->left->data << endl;
     cout << "Right Child: " << bst.root->right->data << endl;
 
-    // adding a new child 
-    node* newChild = new node(0);
+    // // adding a new child 
+    // node* newChild = new node(0);
 
     // finding leftmost position
-    node* current = bst.root->left;
+    node* current = bst.root;
     while (current->left != nullptr) {
         current = current->left;
     }
 
-    current->left = newChild;
-    cout << "Left Child of Left Child: " << current->left->data << endl;
+    // current->left = newChild;
+    // cout << "Left Child of Left Child: " << current->left->data << endl;
 
-    // adding a parent to right child
-    node* newParent = new node(5);
-    newParent -> right = bst.root -> right;
-    bst.root -> right = newParent;
+    // // adding a parent to right child
+    // node* newParent = new node(5);
+    // newParent -> right = bst.root -> right;
+    // bst.root -> right = newParent;
 
-    cout << "Parent of rightmost leaf: " << bst.root -> right -> data << endl;
-    cout << "Rightmost leaf: " << bst.root -> right -> right -> data << endl;
+    // cout << "Parent of rightmost leaf: " << bst.root -> right -> data << endl;
+    // cout << "Rightmost leaf: " << bst.root -> right -> right -> data << endl;
 
     // infix
     cout << "\nInfix loop: ";
@@ -112,6 +112,25 @@ int main() {
     // prefix
     cout << "\nPrefix loop: ";
     bst.prefixPrint(bst.root);
+
+    // deleting a leaf
+    {
+        // 1) finding leftmost parent
+        node* parent = bst.root;
+        while (parent->left->left != nullptr) {
+            parent = parent->left;
+        }
+        cout << endl << "Parent element: " << parent -> data;
+
+        // 2) turning its left child into a NULL structure
+        node* child = parent -> left;
+        delete child;
+
+        cout << endl << "Parent element's left child: " << parent -> left -> data;
+        cout << endl << "Child element: " << child -> data;
+    }
+    
+
 
     return 0;
 }
