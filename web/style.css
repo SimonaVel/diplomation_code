@@ -1,0 +1,10 @@
+h1 {
+    color: rgb(160, 160, 230);
+    text-align: center;
+    text-transform: lowercase;
+}
+
+body {
+    background-color: aliceblue;
+    text-align: center;
+}
