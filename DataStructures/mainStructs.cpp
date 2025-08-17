@@ -129,6 +129,8 @@ int main() {
 
         // 2) turning its left child into a NULL structure
         node* child = parent -> left;
+        child -> left = NULL;
+        child -> right = NULL;
         delete child;
 
         cout << endl << "Parent element's left child: " << parent -> left -> data;
