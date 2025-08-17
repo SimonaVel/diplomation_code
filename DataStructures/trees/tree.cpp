@@ -46,6 +46,36 @@ struct tree {
         postfixPrint(root->right); 
         cout << root->data << " "; 
     } 
+
+    node* addElementToBinaryTree(node* newNode) {
+        // adding the root to the tree
+        if (root == nullptr) {
+            root = newNode;
+            return root;
+        }
+
+        node* current = root;
+        node* insert = root;
+
+        while (current != nullptr && current->data != newNode -> data) {
+            insert = current;
+            if (newNode ->data < current->data) {
+                current = current->left;
+            } else {
+                current = current->right;
+            }
+        }
+        if (current == nullptr) {
+            if (newNode -> data < insert -> data) {
+                insert -> left = newNode;
+            } else {
+                insert -> right = newNode;
+            }
+            return newNode;
+        }
+        // element already in tree
+        return current;
+    }
 };
 
 #endif

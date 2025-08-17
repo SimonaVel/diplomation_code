@@ -72,7 +72,7 @@ int main() {
     arrPQueue.print();
 
     // ========== TREE ========== //
-    cout << "Binary Search Tree:" << endl;
+    cout << "Tree:" << endl;
     tree bst;
     bst.root = new node(2);
     bst.root->left = new node(1);
@@ -118,7 +118,6 @@ int main() {
         bst.prefixPrint(bst.root);
     }
     
-
     // deleting a leaf
     {
         // 1) finding leftmost parent
@@ -133,9 +132,18 @@ int main() {
         delete child;
 
         cout << endl << "Parent element's left child: " << parent -> left -> data;
-        cout << endl << "Child element: " << child -> data;
+        cout << endl << "Child element: " << child -> data << endl;
     }
-    
 
+    // ========== BInARY TREE ========== //
+    cout << "Binary Search tree:" << endl;
+    tree binaryTree;
+    binaryTree.root = new node(3);
+    binaryTree.addElementToBinaryTree(new node(5));
+    binaryTree.addElementToBinaryTree(new node(4));
+    binaryTree.addElementToBinaryTree(new node(2));
+
+    binaryTree.infixPrint(binaryTree.root);
+    
     return 0;
 }
