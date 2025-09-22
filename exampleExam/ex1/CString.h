@@ -2,6 +2,7 @@
 #define CString_H
 
 #include <vector>
+#include <string>
 #include <istream>
 #include <ostream>
 #include <iomanip>
@@ -40,18 +41,16 @@ class CString {
 
         // find occurrences
         std::vector<unsigned> findOccurrences(const char* niz, const char* subNiz);
+
+        virtual std::ostream& ins(std::ostream& out)const;
+        virtual std::istream& extr(std::istream& in);
 };
 
-std::istream& operator>>(std::istream& is, CString& str) {
-    char buffer[1024];
-    is >> std::setw(1024) >> buffer; // prevents overflow
-    str.setNiz(buffer);
-    return is;
+std::ostream& operator<<(std::ostream& os, const CString& s) {
+    return s.ins(os);
 }
-
-std::ostream& operator<<(std::ostream& os, const CString& str) {
-    os << str.getNiz();
-    return os;
+std::istream& operator>>(std::istream& is, CString& s) {
+    return s.extr(is);
 }
 
 #endif

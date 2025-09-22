@@ -94,3 +94,15 @@ std::vector<unsigned> CString::findOccurrences(const char* niz, const char* subN
     }
     return occurrences;
 }
+
+std::ostream& CString::ins(std::ostream& out) const {
+    return out << niz;
+}
+// TODO does not work properly
+std::istream& CString::extr(std::istream& in) {
+    std::string temp;
+    std::getline(in, temp);
+    setNiz(temp.c_str());
+    in.ignore();
+    return in;
+}

@@ -47,7 +47,10 @@
         "algorithm": "cpp",
         "ratio": "cpp",
         "stop_token": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "iomanip": "cpp",
+        "xlocmon": "cpp",
+        "xloctime": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

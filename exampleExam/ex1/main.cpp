@@ -30,9 +30,9 @@ int main() {
     cout << cstring << endl;
 
     // Input using overloaded >> operator - TODO
-    // cout << "Enter a new string: ";
-    // cin >> cstring;
-    // cout << "You entered: " << cstring << endl;
+    cout << "Enter a new string: ";
+    cin >> cstring;
+    cout << "You entered: " << cstring << endl;
 
     return 0;
 }
