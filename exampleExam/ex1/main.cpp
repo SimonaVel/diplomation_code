@@ -2,20 +2,37 @@
 // #include "CString.h"
 #include "CString.cpp"
 
+void printNiz(const CString& str) {
+    for (int i = 0; i < strlen(str.getNiz()); i++) {
+        std::cout << str.getNiz()[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
 
 using namespace std;
 int main() {
-    char a[] = {'a', 'b', 'c', 'a', 'b'};
+    char a[] = "ababaabababa";
+    char substring[] = "aba";
     CString cstring(a, 100);
 
-    char substring[] = {'a', 'b'};
-    int count = 0;
-    unsigned* occurances = cstring.findOccurances(cstring.getNiz(), substring, count);
+    cout << "Niz: ";
+    printNiz(cstring);
 
-    for (int i = 0; i < count; i++) {
-        cout << occurances[i] << " ";
+    cout << "Occurrences\n";
+    vector<unsigned> occurrences = cstring.findOccurrences(cstring.getNiz(), substring);
+    cout << "Count: " << occurrences.size() << endl;
+    for (unsigned pos : occurrences) {
+        std::cout << pos << " ";
     }
-    delete[] occurances;
+
+    cout << "\nString output using overloaded << operator: ";
+    cout << cstring << endl;
+
+    // Input using overloaded >> operator - TODO
+    // cout << "Enter a new string: ";
+    // cin >> cstring;
+    // cout << "You entered: " << cstring << endl;
 
     return 0;
 }

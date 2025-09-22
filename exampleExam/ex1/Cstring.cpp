@@ -27,23 +27,24 @@ CString& CString::operator=(const CString& rhs) {
 
 // destructor
 CString::~CString() {
-    if(niz != NULL) {
+    if(niz != nullptr) {
         delete [] niz;
     }
 }
 
 // get & set
-char* CString::getNiz() {
-    return niz;
-}
+const char* CString::getNiz() const { return niz; }
 
-void CString::setNiz(char* newNiz) {
+void CString::setNiz(const char* newNiz) {
+    if (this->niz != nullptr) {
+        delete[] this->niz;
+    }
+    this->niz = new char[strlen(newNiz) + 1];
     strcpy_s(this->niz, strlen(newNiz) + 1, newNiz);
+    this->maxSize = strlen(newNiz);
 }
 
-int CString::getMaxSize() {
-    return maxSize;
-}
+int CString::getMaxSize() const { return maxSize; }
 void CString::setMaxSize(int newSize) {
     maxSize = newSize;
 }
@@ -73,19 +74,23 @@ int CString::compareNizove(char* lhs, char* rhs) {
     return (*lhs == '\0') ? -1 : 1; // по-късият е по-малък
 }
 
-unsigned* CString::findOccurances(char* niz, char* subNiz, unsigned occurancesIndex = 0) {
+std::vector<unsigned> CString::findOccurrences(const char* niz, const char* subNiz) {
     unsigned nizSize = strlen(niz);
     unsigned subNizSize = strlen(subNiz);
-    unsigned* occurances = new unsigned[nizSize];
-    unsigned occurancesIndex = 0;
+    std::vector<unsigned> occurrences;
 
-    for(int i = 0; i < nizSize - subNizSize; i++) {
-        for(int j = 0; j < subNizSize; j++) {
-            // difference of elements->no occurance
-            if (subNiz[j] != niz[i+j]) break;
-            // occurance when j gets to the end
-            if (j == subNizSize) occurances[occurancesIndex++] = i;
+    if (subNizSize == 0 || subNizSize > nizSize) {
+        return occurrences; // no matches possible
+    }
+
+    for (unsigned i = 0; i <= nizSize - subNizSize; i++) {
+        unsigned j = 0;
+        while (j < subNizSize && niz[i + j] == subNiz[j]) {
+            j++;
+        }
+        if (j == subNizSize) {
+            occurrences.push_back(i);
         }
     }
-    return occurances;
+    return occurrences;
 }
